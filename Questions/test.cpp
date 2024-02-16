@@ -1,27 +1,19 @@
-#include <bits/stdc++.h> 
-#include <iostream>
-#include <vector>
+#include<iostream>
 using namespace std;
-void sort012(vector<int> arr, int n) {
-    
-    for(int i=0, j=1, k=n-1; i<=k;) {
-        if (arr[i]==0) {
-            i++;
-            j++;
-        }
-        
-        if (arr[i]==2) {
-            swap(arr[i], arr[k]);
-        }
-    }
+int main()
+{
+    int x=5;
+    int columns;
+    columns = (x*2)-1;
+    int half = (columns/2)+1;
+    // for(int i=1;i<=x;i++)
+    // {
+    //     for(int j=1;j<=columns;j++)
+    //     {
 
-    for (int i=0; i<n; i++) {
-        cout<<arr[i];
-    }
-}
-
-int main() {
-
-    vector<int> arr{2,1,1,0,0};
+    //     }
+    // }
+    cout<<columns<<endl;
+    cout<<half;
     return 0;
 }
