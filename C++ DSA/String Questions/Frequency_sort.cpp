@@ -12,22 +12,12 @@ int main(){
         char x = inp[i];
         m[x]++;
     }
-    // for(auto &pr : m){
-    //     cout<<pr.first<<" "<<pr.second<<endl;
-    // }
-
     set<pair<int, char>> s;
     for(auto &it: m){
         // pairs x = ;
         s.insert(make_pair(it.second, it.first));
     }
-
-    // for(auto &it : s){
-    //     cout<<it.first<<" "<< it.second<<endl;
-    // }
-
     string ans = "";
-    // set<pairs> :: iterator it;
     for(auto &it : s){
         cout<<(it).first<<" "<<(it).second<<endl;
         for(int i = 0; i < (it).first; i++){
