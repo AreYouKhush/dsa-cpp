@@ -38,7 +38,19 @@ void withoutMapOrSet(string &s){
     }
 }
 
+void usingHashMap(string &s){
+    vector<int> v(26, 0);
+    for(int i = 0; i < s.size(); i++){
+        v[abs((int)(s[i]-'z')) - 1]++;
+    }
+    for(int i = 0; i < v.size(); i++){
+        if(v[i] != 0){
+            cout<<(char)('a'+i)<<"->"<<v[i]<<endl;
+        }
+    }
+}
+
 int main(){
     string s = "khushalsuthar";
-    withoutMapOrSet(s);
+    usingHashMap(s);
 }
