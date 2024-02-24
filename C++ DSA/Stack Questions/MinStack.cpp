@@ -17,10 +17,25 @@ class minStack
         // Write your code here.
         st.push_back(num);
         int count = 0;
-        while(num > minSt[minSt.size() - 1]){
-            st.push_back(minSt[minSt.size() - 1]);
-            minSt.pop_back();
-            count++;
+        if(minSt.size() == 0){
+            minSt.push_back(num);
+        }else{
+            while(minSt.size() != 0 && num > minSt[minSt.size() - 1]){
+                st.push_back(minSt[minSt.size() - 1]);
+                minSt.pop_back();
+                count++;
+            }
+            int temp = count;
+            while(count >= 0){
+                if(count == temp){
+                    minSt.push_back(num);
+                    count--;
+                }else{
+                    minSt.push_back(st[st.size() - 1]);
+                    st.pop_back();
+                    count--;
+                }
+            }
         }
     }
     
@@ -30,7 +45,21 @@ class minStack
         if(st.size() == 0){
             return -1;
         }else{
-            int ans = st[st.size() - 1];
+            int ans = st[st.size() - 1]; 
+            int count = 0;
+            while(minSt[minSt.size()-1] != ans){
+                st.push_back(minSt[minSt.size()-1]);
+                minSt.pop_back();
+                count++;
+            }
+            if(minSt[minSt.size()-1] == ans){
+                minSt.pop_back();
+            }
+            while(count > 0){
+                minSt.push_back(st[st.size() - 1]);
+                st.pop_back();
+                count--;
+            }
             st.pop_back();
             return ans;
         }
@@ -55,6 +84,17 @@ class minStack
             return minSt[minSt.size() - 1];
         }
     }
+
+    void display(){
+        cout<<endl<<"STACK: "<<endl;
+        for(auto it: st){
+            cout<<it<<" ";
+        }
+        cout<<endl<<"MINSTACK: "<<endl;
+        for(auto it: minSt){
+            cout<<it<<" ";
+        }
+    }
 };
 
 int main(){
@@ -63,6 +103,9 @@ int main(){
     ms.push(5);
     ms.push(9);
     ms.push(2);
-    cout<<ms.top();
-    cout<<ms.getMin();
+    ms.push(6);
+    for(int i = 0; i < 6; i++){
+        cout<<ms.pop()<<" ";
+        cout<<ms.getMin()<<endl;
+    }
 }
