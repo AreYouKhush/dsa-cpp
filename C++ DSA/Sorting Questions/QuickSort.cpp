@@ -33,7 +33,7 @@ void quickSort(vector<int>& arr, int low, int high){
 }
 
 int main(){
-    vector<int> inp = {5,9,6,1,5,0, 1, 1, 1, 1};
+    vector<int> inp = {5,9,6,1,5,0,1,1,1,1};
     int n = inp.size();
     quickSort(inp, 0, n-1);
     for(auto i:inp){
