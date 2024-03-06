@@ -13,6 +13,7 @@ Data Structures and Algorithms (DSA) are crucial topics in technical interviews.
 ---
 
 **Top Array Questions:-**
+
 1. **Finding the Missing Number**: Given an integer array from 1 to 100, find the missing number.
 2. **Detecting Duplicate Numbers**: Identify the duplicate number(s) in a given integer array.
 3. **Max and Min in Unsorted Array**: Find the largest and smallest numbers in an unsorted integer array.
@@ -33,3 +34,28 @@ Data Structures and Algorithms (DSA) are crucial topics in technical interviews.
 18. **Jump Game**: Determine if you can reach the last index in an array of non-negative integers.
 19. **Valid Sudoku**: Check if a partially filled Sudoku board is valid.
 20. **Counting Sort**: Implement counting sort for sorting integers within a specific range.
+
+---
+
+**Top Linked List Questions:-**
+
+1. **Print the Middle of a Linked List**: Find the middle element in a singly linked list.
+2. **Reverse a Linked List**: Reverse the order of elements in a singly linked list.
+3. **Reverse a Doubly Linked List**: Reverse the direction of a doubly linked list.
+4. **Rotate a Linked List**: Rotate the elements of a linked list by a given number of positions.
+5. **Nth Node from the End**: Find the Nth node from the end of a linked list.
+6. **Delete Last Occurrence of an Item**: Remove the last occurrence of a specific value from the list.
+7. **Remove Duplicates from Sorted List**: Eliminate duplicate elements from a sorted linked list.
+8. **Detect Loop in Linked List**: Determine if a linked list contains a loop.
+9. **Delete N Nodes After M Nodes**: Delete N nodes after every M nodes in a linked list.
+10. **Merge Two Linked Lists at Alternate Positions**: Combine two linked lists by alternating their elements.
+11. **Circular Linked List Traversal**: Traverse a circular linked list.
+12. **Deletion from a Circular Linked List**: Remove a specific element from a circular linked list.
+13. **Implement Queue using Linked List**: Create a queue using a linked list.
+14. **Implement a Stack using Singly Linked List**: Build a stack using a singly linked list.
+15. **Remove Every K-th Node**: Delete every K-th node from the linked list.
+16. **Pairwise Swap of Nodes**: Swap adjacent nodes in pairs.
+17. **Occurrence of an Integer**: Count the occurrences of a specific integer in the list.
+18. **Sort a Linked List of 0s, 1s, and 2s**: Arrange a list containing 0s, 1s, and 2s.
+19. **Intersection Point in Y-Shaped Linked Lists**: Find the intersection point of two Y-shaped linked lists.
+20. **Add Two Numbers Represented by Linked Lists**: Add two numbers represented by linked lists.
