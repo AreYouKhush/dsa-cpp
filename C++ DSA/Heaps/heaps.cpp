@@ -24,15 +24,14 @@
         3. Total n elements so O(nlogn) time.
 
     Heapify algorithm:
-        1. 
-        2.
-        3.
-        4.
-        5.
+        (FOR 1 indexed array)
+        1. In CBT, leaf nodes are from (n/2) + 1 to n
+        2. heapify(arr, size, i)
+        3. use recursion to put each child to it's correct position
 
     Heap representation in array form:-
-        1. If node is at ith position, then
         (FOR 1 indexed array)
+        1. If node is at ith position, then
         2. left child -> 2*i index
         3. right child -> 2*i+1 index
         4. parent = floor(i/2)
@@ -140,7 +139,6 @@ class Heap{
         while(index < arr.size()){
             int l = (index * 2) + 1;
             int r = (index * 2) + 2;
-            cout<<l<<" "<<r<<" "<<index<<endl;
             if(l < arr.size() && arr[l] > arr[index] && r < arr.size() && arr[l] >= arr[r]){
                 swap(arr[index], arr[l]);
                 index = l;
