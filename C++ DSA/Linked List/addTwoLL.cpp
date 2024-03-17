@@ -84,8 +84,8 @@ Node<int>* convertArrToLL(vector<int> &arr){
 }
 
 int main(){
-    vector<int> temp1 = {9,-1};
-    vector<int> temp2 = {1,-1};
+    vector<int> temp1 = {9,9,9,9,9,9,9};
+    vector<int> temp2 = {9,9,9,9};
     Node<int>* first = convertArrToLL(temp1);
     Node<int>* second = convertArrToLL(temp2);
     Node<int>* sumOfLL = addTwoLists(first, second);
