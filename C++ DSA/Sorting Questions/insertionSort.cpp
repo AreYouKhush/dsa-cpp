@@ -20,7 +20,7 @@ void insertionSort(vector<int>& arr){
 }
 
 int main(){
-    vector<int> inp = {1,2,3,4,5,6,7,8,9};
+    vector<int> inp = {7,7,3,4,9,6,7,8,9};
     insertionSort(inp);
     for(auto i:inp){
         cout<<i<<" ";

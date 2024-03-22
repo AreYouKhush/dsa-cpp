@@ -4,32 +4,23 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void selectionSort(vector<int>& arr){
-    int end = arr.size() - 1;
-    for(int i = 0; i <= end; i++){
-        int next = 0;
-        int swaps = 0;
-
-        for(int j = 1; j <= end - i; j++, next++){
-            if(arr[next] > arr[j]){
-                swap(arr[next], arr[j]);
-                swaps++;
+void bubbleSort(vector<int>& arr){
+    int flag = true;
+    for(int i = 0; i < arr.size() && flag; i++){
+        flag = false;
+        for(int j = 1; j < arr.size() - i; j++){
+            if(arr[j-1] > arr[j]){
+                swap(arr[j-1], arr[j]);
+                flag = true;
             }
         }
-        //If array has already been sorted exit
-        if(swaps == 0){
-            break;
-        }
-        cout<<"Step "<<i+1<<": ";
-        for(auto i:arr){
-            cout<<i<<" ";
-        }cout<<endl;
-    }
+    } 
 }
 
 int main(){
-    vector<int> inp = {9,8,7,6,5,4,3,2,1,0};
-    selectionSort(inp);
+    // vector<int> inp = {9,8,7,6,5,4,3,2,1,0};
+    vector<int> inp = {0,1,2,3,4,5,6,7,8,9};
+    bubbleSort(inp);
     for(auto i:inp){
         cout<<i<<" ";
     }
