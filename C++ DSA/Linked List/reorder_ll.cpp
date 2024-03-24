@@ -19,7 +19,7 @@ class List{
     }
 };
 
-void reorderList(List* head) {
+void reorderListI(List* head) {
     stack<List*> s;
     List* curr = head;
     while(curr){
@@ -49,8 +49,41 @@ void reorderList(List* head) {
     }
 }
 
+void reorderListII(List* head){
+    List* slow = head;
+    List* fast = head->next;
+
+    while(fast && fast->next){
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    List* second = slow->next;
+    List* prev = nullptr;
+    slow->next = nullptr;
+
+    while(second){
+        List* temp = second->next;
+        second->next = prev;
+        prev = second;
+        second = temp;
+    }
+
+    List* first = head;
+    second = prev;
+
+    while(second){
+        List* temp1 = first->next;
+        List* temp2 = second->next;
+        first->next = second;
+        second->next = temp1;
+        first = temp1;
+        second = temp2;
+    }
+}
+
 int main(){
-    vector<int> inp = {1,2,3,4,5};
+    vector<int> inp = {1,2,3,4,5,6};
     List* head = new List(inp[0]);
     List* mover = head;
     for(int i = 1; i < inp.size(); i++){
@@ -58,7 +91,7 @@ int main(){
         mover->next = temp;
         mover = temp;
     }
-    reorderList(head);
+    reorderListII(head);
     while(head){
         cout<<head->data<<" ";
         head = head->next;
