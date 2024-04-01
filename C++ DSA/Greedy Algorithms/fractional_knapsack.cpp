@@ -61,8 +61,8 @@ int main(){
     vector<pair<int, int>> items = {{50,40},{40,50},{90,25},{120,100},{10,30},{200,45}};
     int totalItems = items.size();
     int weight = 200;
-    // double ans = fractionalKnapsack(items, totalItems, weight);
-    double ans = maximumValue1(items, totalItems, weight);
+    double ans = fractionalKnapsack(items, totalItems, weight);
+    // double ans = maximumValue1(items, totalItems, weight);
 
     cout<<"Total Value: "<<ans;
 }

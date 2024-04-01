@@ -18,7 +18,7 @@ vector<int> MinimumCoins(int n){
 }
 
 int main(){
-    int n = 189;
+    int n = 2542;
     vector<int> ans = MinimumCoins(n);
     for(auto it: ans){
         cout<<it<<" ";
