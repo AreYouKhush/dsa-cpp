@@ -17,5 +17,5 @@ int timeRequiredToBuy(vector<int>& tickets, int k) {
 
 int main(){
     vector<int> inp = {2,3,4,56,3,45,56,6,34,45,2};
-    cout<<timeRequiredToBuy(inp ,4);
+    cout<<timeRequiredToBuy(inp, 3);
 }
