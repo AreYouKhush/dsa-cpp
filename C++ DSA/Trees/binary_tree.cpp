@@ -67,6 +67,7 @@ Node<int>* createTree(vector<int>& nums){
     return root;
 }
 
+// Breadth-First Search
 void levelOrderTraversal(Node<int>* root){
     queue<Node<int>*> q;
     q.push(root);
@@ -83,7 +84,7 @@ void levelOrderTraversal(Node<int>* root){
                 q.push(NULL);
             }
         }else{
-        cout<<temp->data<<" ";
+            cout<<temp->data<<" ";
             if(temp->left){
                 q.push(temp->left);
             }
@@ -98,15 +99,34 @@ void printTree(Node<int>* root) {
     if (!root) {
         return;
     }
-      printTree(root->left);
+    printTree(root->left);
     cout << root->data << " ";
    
     printTree(root->right);
-} 
+}
+
+Node<int>* buildTree(Node<int>* root){
+    cout<<"Enter the data: "<<endl;
+    int data;
+    cin>>data;
+    root = new Node<int>(data);
+
+    if(data == -1) return NULL;
+
+    cout<<"Enter data for inserting in left of "<<data<<endl;
+    root->left = buildTree(root->left);
+    cout<<"Enter data for inserting in right of "<<data<<endl;
+    root->right = buildTree(root->right);
+
+    return root;
+}
 
 int main(){
-    vector<int> vec = {1,2,3,4,5,6,7,8,9,10};
-    Node<int>* root = createTree(vec);
+    // vector<int> vec = {1,2,3,4,5,6,7,8,9,10};
+    // Node<int>* root = createTree(vec);
+
+    Node<int>* root = buildTree(root);
+
     // printTree(root);
     levelOrderTraversal(root);
     return 0;
