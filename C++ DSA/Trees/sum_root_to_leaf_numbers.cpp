@@ -23,6 +23,7 @@ class Node{
     }
 };
 
+
 Node* buildTree(Node* root){
     // cout<<"Enter the data: ";
     int data;
@@ -38,30 +39,26 @@ Node* buildTree(Node* root){
     return root;
 }
 
-void BFS(Node* root){
-    queue<Node*> q;
-    q.push(root);
-    q.push(NULL);
-
-    while(!q.empty()){
-        Node* temp = q.front();
-        q.pop();
-        if(temp == NULL){
-            cout<<"\n";
-            if(!q.empty()){
-                q.push(NULL);
-            }
-        }else{
-            cout<<temp->data<<" ";
-            if(temp->left != nullptr) q.push(temp->left);
-            if(temp->right != nullptr) q.push(temp->right);
-        }
+void preOrderDFS(Node* root, int& sum, int n){
+    n = (n*10) + root->data;
+    if(root->left == nullptr && root->right == nullptr){
+        sum += n;
+        return;
     }
+    if(root->left == nullptr) return;
+    preOrderDFS(root->left, sum, n);
+    if(root->right == nullptr) return;
+    preOrderDFS(root->right, sum, n);
 }
 
 int main(){
-    // 3 2 1 -1 2 -1 4 -1 -1 -1 -1
+    // 4 9 5 -1 -1 1 -1 -1 0 -1 -1
+    // 1 0 0 -1 -1 -1 0 -1 -1
+    // 1 0 0 -1 -1 -1 0 -1 0 -1 -1
     Node* root = buildTree(root);
-    BFS(root);
+    int sum = 0;
+    int n = 0;
+    preOrderDFS(root, sum, n);
+    cout<<sum;
     return 0;
 }

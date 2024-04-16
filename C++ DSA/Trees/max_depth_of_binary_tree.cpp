@@ -38,30 +38,24 @@ Node* buildTree(Node* root){
     return root;
 }
 
-void BFS(Node* root){
-    queue<Node*> q;
-    q.push(root);
-    q.push(NULL);
+int findDepth(Node* root, int& maxDepth, int depth){
+    if(root == nullptr) return maxDepth;
+    depth++;
+    maxDepth = max(maxDepth, depth);
+    findDepth(root->left, maxDepth, depth);
+    findDepth(root->right, maxDepth, depth);
 
-    while(!q.empty()){
-        Node* temp = q.front();
-        q.pop();
-        if(temp == NULL){
-            cout<<"\n";
-            if(!q.empty()){
-                q.push(NULL);
-            }
-        }else{
-            cout<<temp->data<<" ";
-            if(temp->left != nullptr) q.push(temp->left);
-            if(temp->right != nullptr) q.push(temp->right);
-        }
-    }
+    return maxDepth;
+}
+
+int maxDepth(Node* root) {
+    int maxDepth = 0;
+    return findDepth(root, maxDepth, 0);
 }
 
 int main(){
     // 3 2 1 -1 2 -1 4 -1 -1 -1 -1
     Node* root = buildTree(root);
-    BFS(root);
+    cout<<maxDepth(root);
     return 0;
 }
