@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Using Str4uct
+// Using Struct
 // struct Node{
 //     public:
 //     int data;
