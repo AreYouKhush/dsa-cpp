@@ -28,10 +28,16 @@ void subsetsWithDup(vector<int>& nums, vector<vector<int>>& res, vector<int>& te
         return;
     }
     
-    subsetsWithDup(nums, res, temp, ind+1);
+    // all subsets that include nums[ind]
     temp.push_back(nums[ind]);
     subsetsWithDup(nums, res, temp, ind+1);
     temp.pop_back();
+
+    // all subsets that don't include nums[ind]
+    while(ind+1 < nums.size() and nums[ind] == nums[ind+1]){
+        ind++;
+    }
+    subsetsWithDup(nums, res, temp, ind+1);
 }
 
 vector<vector<int>> subsetsWithDup(vector<int>& nums) {
@@ -44,7 +50,7 @@ vector<vector<int>> subsetsWithDup(vector<int>& nums) {
 
 int main() {
     vector<int> nums = {1,1,2,2};
-    vector<vector<int>> res = subsets(nums);
+    vector<vector<int>> res = subsetsWithDup(nums);
     for(auto it: res){
         for(auto item: it) {
             cout<<item<<" ";
