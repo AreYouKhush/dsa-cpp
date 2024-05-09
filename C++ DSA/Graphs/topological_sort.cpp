@@ -28,7 +28,7 @@ Algorithm:
 
 Topological Sorting using Kahn's BFS Based Algorithm
 
-The approach is based on the below fact that, A DAG G has at least one vertex with in-degree 0 and one vertex with out-degree 0.
+The approach is based on the below fact that, A DAG has at least one vertex with in-degree 0 and one vertex with out-degree 0.
 
 Algorithm:
 
