@@ -10,3 +10,24 @@ Dynamic programming is a method used in computer science to solve problems by br
 
 In essence, dynamic programming is a technique that helps solve complex problems efficiently by breaking them down into smaller, manageable parts and reusing solutions to subproblems.
 
+1. Recursion: each function calls give rise to 2 more: therefore O(2^n)
+2. Memoization: stores in an array: O(n)
+   Subproblem results are stored in an array, ensuring that each subproblem is solved only once.
+3. Tabulation: iterative approach and takes O(n) subproblems from the smallest to the largest.
+
+RECURSION: Top down: We start from answer, go to the base case and then go back
+MEMOIZATION: TOP DOWN:  avoids redundant calls done in recursion reducing time complexity
+TABULATION IS: Bottom up: We start from the base case and we try to go to the required answer
+
+## Understanding a DP problem
+
+- Count the total number of ways
+- Try possible ways -> Count or Best way -> Recursion (All possible ways)
+- Minial or maximal output (Recursion mostly)
+
+## Shortcut
+
+1. Try to represent the problem in terms of index
+2. Do all possible stuffs on that index according to the problem statement
+3. Sum of all stuffs -> Count all ways
+4. Min. or Max. of all stuffs as the question says
