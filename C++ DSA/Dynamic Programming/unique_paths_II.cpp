@@ -38,9 +38,29 @@ int uniquePathsWithObstacles(vector<vector<int>>& grid) {
     return dp[n-1];
 }
 
+// Tabulation
+int uniquePathsWithObstacles_str(vector<vector<int>>& grid) {
+    vector<int> prev(grid[0].size(), 0);
+    for(int i = 0; i < grid.size(); i++) {
+        vector<int> cur(grid[0].size(), 0);
+        for(int j = 0; j < grid[0].size(); j++) {
+            if(grid[i][j] == -1) cur[j] = 0;
+            else if(i==0 && j==0) cur[j] = 1;
+            else {
+                int up = 0, left = 0;
+                if(i>0) up = prev[j];
+                if(j>0) left = cur[j-1];
+                cur[j] = up + left;
+            }
+         }
+         prev = cur;
+    }
+    return prev[grid[0].size() - 1];
+}
+
 int main() {
     vector<vector<int>> obs = {{0,0,1,0},{0,0,1,0}, {1,1,1,0}, {0,0,0,0}};
-    // cout<<uniquePathsWithObstacles(obs);
-    cout<<uniquePathsWithObstacles_recursive(obs);
+    cout<<uniquePathsWithObstacles_str(obs)<<endl;
+    cout<<uniquePathsWithObstacles(obs);
     return 0;
 }
