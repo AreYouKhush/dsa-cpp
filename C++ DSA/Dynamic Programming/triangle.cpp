@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int helper(vector<vector<int>>& triangle, int row, int col, vector<vector<int>> dp) {
+int helper(vector<vector<int>>& triangle, int row, int col, vector<vector<int>>& dp) {
     if(row < 0 || col < 0) return INT_MAX;
     if(row == 0) return triangle[0][0];
     if(dp[row][col] != INT_MAX) return dp[row][col];
@@ -17,13 +17,70 @@ int helper(vector<vector<int>>& triangle, int row, int col, vector<vector<int>> 
     return dp[row][col] = min(up, right);
 }
 
-int minimumTotal(vector<vector<int>>& triangle) {
+// Memoization
+int minimumTotal_memo(vector<vector<int>>& triangle) {
     int m = triangle.size();
     vector<vector<int>> dp(m, vector<int>(m, INT_MAX));
     int mini = INT_MAX;
     for(int i = m-1; i >= 0; i--) {
         mini = min(mini, helper(triangle, m-1, i, dp));
     }
+    return mini;
+}
+
+//Tabulation
+int minimumTotal_tab(vector<vector<int>>& triangle) {
+    int m = triangle.size();
+    vector<vector<int>> dp(m, vector<int>(m, INT_MAX));
+    int mini = INT_MAX;
+
+    dp[0][0] = triangle[0][0];
+
+    for(int i = 1; i < m; i++) {
+        for(int j = 0; j < triangle[i].size(); j++) {
+            int up = INT_MAX;
+            if(j < triangle[i-1].size()) up = dp[i-1][j] + triangle[i][j];
+
+            int left = INT_MAX;
+            if(j-1 >= 0) left = dp[i-1][j-1] + triangle[i][j];
+
+            dp[i][j] = min(up, left);
+        }
+    }
+
+    for(int i = 0; i < m; i++) {
+        mini = min(mini, dp[m-1][i]);
+    }
+
+    return mini;
+}
+
+// space optimization
+int minimumTotal(vector<vector<int>>& triangle) {
+    int m = triangle.size();
+    vector<int> dp(m, INT_MAX);
+    int mini = INT_MAX;
+
+    dp[0] = triangle[0][0];
+
+    for(int i = 1; i < m; i++) {
+        vector<int> cur(m, INT_MAX);
+        for(int j = 0; j < triangle[i].size(); j++) {
+            int up = INT_MAX;
+            if(j < triangle[i-1].size()) up = dp[j] + triangle[i][j];
+
+            int left = INT_MAX;
+            if(j-1 >= 0) left = dp[j-1] + triangle[i][j];
+
+            cur[j] = min(up, left);
+        }
+        dp = cur;
+    }
+
+    for(int i = 0; i < m; i++) {
+        mini = min(mini, dp[i]);
+    }
+
     return mini;
 }
 
