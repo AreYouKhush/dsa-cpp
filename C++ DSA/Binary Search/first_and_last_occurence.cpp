@@ -39,10 +39,16 @@ public:
             else if(nums[mid] > target) high = mid-1;
             else low = mid + 1;
         }
+        cout<<res[1]-res[0]+1<<endl;
         return res;
     }
 };
 
 int main() {
+    Solution obj = Solution();
+    vector<int> arr = {8,9,10,12,12,12};
+    int target = 12;
+    vector<int> res = obj.searchRange(arr, target);
+    cout<<res[0]<<" "<<res[1]<<endl;
     return 0;
 }
